@@ -15,7 +15,7 @@ const About = () => {
       </div>
       <p className="mt-6 text-lg leading-8 max-w-2xl mx-auto">
         At KornaMart, we're committed to offering high-quality products at
-        affordable prices, ensuring a seamless shopping experience for our
+        affordable prices, ensuring a seamless shopping experience for all our
         customers.
       </p>
       <p className="mt-6 text-2xl font-bold leading-8 max-w-2xl mx-auto">
