@@ -5,8 +5,8 @@ import NavLinks from "./NavLinks";
 import { useEffect, useState } from "react";
 
 const themes = {
-  corporate: "corporate",
-  business: "business",
+  winter: "winter",
+  dracula: "dracula",
 };
 
 const Navbar = () => {
@@ -14,13 +14,13 @@ const Navbar = () => {
 
   // get theme from localstorage
   const getTheme = () => {
-    return localStorage.getItem("theme") || themes.corporate;
+    return localStorage.getItem("theme") || themes.winter;
   };
 
   const [theme, setTheme] = useState(getTheme());
   const handleTheme = () => {
-    const { business, corporate } = themes;
-    const newTheme = theme === corporate ? business : corporate;
+    const { dracula, winter } = themes;
+    const newTheme = theme === winter ? dracula : winter;
     setTheme(newTheme);
   };
 
