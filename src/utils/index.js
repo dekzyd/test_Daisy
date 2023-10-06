@@ -5,3 +5,11 @@ const productionURL = "https://strapi-store-server.onrender.com/api";
 export const customFetch = axios.create({
   baseURL: productionURL,
 });
+
+export const formatPrice = (price) => {
+  const dollarsAmount = new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+  }).format((price / 100).toFixed(2));
+  return dollarsAmount;
+};
