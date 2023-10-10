@@ -2,7 +2,7 @@ const FormInput = ({ label, name, type, defaultValue, size }) => {
   return (
     <div className="form-control">
       <label className="label">
-        <span className="label-text font-semibold">{label}</span>
+        <span className="label-text">{label}</span>
       </label>
       <input
         type={type}
