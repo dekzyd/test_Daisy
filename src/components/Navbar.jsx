@@ -2,34 +2,16 @@ import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux/es/hooks/useSelector";
-
-const themes = {
-  winter: "winter",
-  dracula: "dracula",
-};
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../features/user/userSlice";
 
 const Navbar = () => {
   // changes to light or dark mode
 
-  // get theme from localstorage
-  const getTheme = () => {
-    return localStorage.getItem("theme") || themes.winter;
-  };
-
-  const [theme, setTheme] = useState(getTheme());
+  const dispatch = useDispatch();
   const handleTheme = () => {
-    const { dracula, winter } = themes;
-    const newTheme = theme === winter ? dracula : winter;
-    setTheme(newTheme);
+    dispatch(toggleTheme());
   };
-
-  useEffect(() => {
-    // save theme to localStorage
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
 
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
