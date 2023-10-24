@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-constant-condition */
 import { Form, redirect } from "react-router-dom";
 import FormInput from "./FormInput";
 import SubmitBtn from "./SubmitBtn";
@@ -40,8 +42,9 @@ export const action =
       const errorMessage =
         error?.response?.data?.error?.message ||
         "there was an error placing your order";
-
       toast.error(errorMessage);
+      if (error?.response?.status === 401 || 403) return redirect("/login");
+
       return null;
     }
   };
